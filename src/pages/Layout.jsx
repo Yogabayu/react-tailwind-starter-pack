@@ -39,7 +39,8 @@ const Layout = () => {
           } rounded-lg m-4`}
         >
           <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
-            <a href="#" className="flex items-center">
+            {/* <a href="#" > */}
+            <NavLink className="flex items-center" to="/">
               <img
                 src={siteLogo}
                 className="mr-3 h-6 sm:h-9"
@@ -48,7 +49,8 @@ const Layout = () => {
               <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
                 fitApp
               </span>
-            </a>
+            </NavLink>
+            {/* </a> */}
             <div className="flex items-center lg:order-2">
               <button
                 onClick={toggleMobileMenu}
