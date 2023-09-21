@@ -5,6 +5,8 @@ import Home from "./pages/Home";
 import Bmi from "./pages/Bmi";
 import Contact from "./pages/Contact";
 import NoPage from "./pages/NoPage";
+import About from "./pages/About";
+import Privacy from "./pages/Privacy";
 
 export default function App() {
   return (
@@ -13,6 +15,10 @@ export default function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="bmi" element={<Bmi />} />
+
+
+          <Route path="about" element={<About />} />
+          <Route path="privacy" element={<Privacy />} />
           <Route path="contact" element={<Contact />} />
           <Route path="*" element={<NoPage />} />
         </Route>
