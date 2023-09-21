@@ -134,7 +134,8 @@ const Layout = () => {
         <div className="w-full max-w-screen-xl mx-auto p-4 md:py-8">
           <div className="sm:flex sm:items-center sm:justify-between">
             <a
-              href="https://yogabayusbi.com/"
+                          href="https://yogabayuap.com/"
+                          target="_blank"
               className="flex items-center mb-4 sm:mb-0"
             >
               <img src={siteLogo} className="h-8 mr-3" alt="Apssss Logo" />
@@ -163,7 +164,7 @@ const Layout = () => {
           <hr className="my-1 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-3" />
           <span className="block text-sm text-gray-500 sm:text-center dark:text-gray-400">
             © 2023{" "}
-            <a href="https://yogabayuap.com.com/" className="hover:underline">
+            <a href="https://yogabayuap.com/" className="hover:underline" target="_blank">
               fitApp
             </a>
             . All Rights Reserved.
