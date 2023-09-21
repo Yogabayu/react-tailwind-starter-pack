@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Outlet, Link, NavLink } from "react-router-dom";
 import siteLogo from "../images/logo_site.png";
 
@@ -6,7 +6,25 @@ import siteLogo from "../images/logo_site.png";
 
 const Layout = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [theme, setTheme] = useState("light"); // Tema default
+  useEffect(() => {
+    const darkMediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
 
+    if (darkMediaQuery.matches) {
+      setTheme("dark");
+    } else {
+      setTheme("light");
+    }
+
+    // Menambahkan event listener untuk perubahan tema
+    darkMediaQuery.addEventListener("change", (e) => {
+      if (e.matches) {
+        setTheme("dark");
+      } else {
+        setTheme("light");
+      }
+    });
+  }, []);
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
@@ -15,7 +33,11 @@ const Layout = () => {
     <div className="bg-gray-100 min-h-screen flex flex-col">
       {/* Header */}
       <header>
-        <nav className="bg-white border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-gray-800 rounded-lg m-4">
+        <nav
+          className={`bg-white dark:bg-gray-800 px-4 lg:px-6 py-2.5 border-${
+            theme === "light" ? "gray" : "gray-700"
+          } rounded-lg m-4`}
+        >
           <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
             <a href="#" className="flex items-center">
               <img
@@ -70,7 +92,9 @@ const Layout = () => {
                 <li>
                   <NavLink
                     to="/"
-                    className="block py-2 pr-4 pl-3 text-white rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-white"
+                    className={`block py-2 pr-4 pl-3 text-${
+                      theme === "light" ? "black" : "white"
+                    } rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0`}
                     style={({ isActive }) => ({
                       fontWeight: isActive ? "bold" : "normal",
                     })}
@@ -81,7 +105,9 @@ const Layout = () => {
                 <li>
                   <NavLink
                     to="/bmi"
-                    className="block py-2 pr-4 pl-3 text-white rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-white"
+                    className={`block py-2 pr-4 pl-3 text-${
+                      theme === "light" ? "black" : "white"
+                    } rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0`}
                     style={({ isActive }) => ({
                       fontWeight: isActive ? "bold" : "normal",
                     })}
@@ -121,10 +147,14 @@ const Layout = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/privacy" className="mr-4 hover:underline md:mr-6">Privacy</NavLink>
+                <NavLink to="/privacy" className="mr-4 hover:underline md:mr-6">
+                  Privacy
+                </NavLink>
               </li>
               <li>
-                <NavLink to="/contact" className="hover:underline">Contact</NavLink>
+                <NavLink to="/contact" className="hover:underline">
+                  Contact
+                </NavLink>
               </li>
             </ul>
           </div>
