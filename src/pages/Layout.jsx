@@ -162,7 +162,7 @@ const Layout = () => {
           <span className="block text-sm text-gray-500 sm:text-center dark:text-gray-400">
             © 2023{" "}
             <a href="https://yogabayuap.com.com/" className="hover:underline">
-              Apsss
+              fitApp
             </a>
             . All Rights Reserved.
           </span>
