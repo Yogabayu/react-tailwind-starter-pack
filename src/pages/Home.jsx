@@ -1,9 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Outlet, Link, NavLink } from "react-router-dom";
 import Alert from "./Alert";
 
 const Home = () => {
   const [showAlert, setShowAlert] = useState(false);
+  const [theme, setTheme] = useState("light"); // Tema default
+  useEffect(() => {
+    const darkMediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+
+    if (darkMediaQuery.matches) {
+      setTheme("dark");
+    } else {
+      setTheme("light");
+    }
+
+    // Menambahkan event listener untuk perubahan tema
+    darkMediaQuery.addEventListener("change", (e) => {
+      if (e.matches) {
+        setTheme("dark");
+      } else {
+        setTheme("light");
+      }
+    });
+  }, []);
 
   const handleClick = () => {
     // Tampilkan pop-up alert ketika tombol "Check" diklik
@@ -18,7 +37,6 @@ const Home = () => {
   return (
     <div className="w-full max-w-screen-xl mx-auto p-4 md:py-8">
       <div className="sm:flex sm:items-center sm:justify-center">
-        {/* <div className="grid grid-cols-4 gap-4 justify-content-center"> */}
         {/* BMI */}
         <div className="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 m-4">
           <svg
@@ -27,7 +45,9 @@ const Home = () => {
             height="24"
             viewBox="0 0 24 24"
             fill="none"
-            stroke="#ffffff"
+            stroke={`${
+                      theme === "light" ? "#000000" : "#ffffff"
+                    }`}
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -72,7 +92,9 @@ const Home = () => {
             height="24"
             viewBox="0 0 24 24"
             fill="none"
-            stroke="#ffffff"
+            stroke={`${
+                      theme === "light" ? "#000000" : "#ffffff"
+                    }`}
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -87,12 +109,8 @@ const Home = () => {
           <p className="mb-3 font-normal text-gray-500 dark:text-gray-400">
             Klik untuk melakukan pengecekan kebutuhan kalori anda dalam sehari
           </p>
-          {/* <NavLink
-            to=""
-            className="inline-flex items-center text-blue-600 hover:underline"
-          > */}
-          <button
-            onClick={handleClick}
+          <NavLink
+            to="/daily"
             className="inline-flex items-center text-blue-600 hover:underline"
           >
             Check
@@ -111,16 +129,63 @@ const Home = () => {
                 d="M15 11v4.833A1.166 1.166 0 0 1 13.833 17H2.167A1.167 1.167 0 0 1 1 15.833V4.167A1.166 1.166 0 0 1 2.167 3h4.618m4.447-2H17v5.768M9.111 8.889l7.778-7.778"
               />
             </svg>
-          </button>
-          {showAlert && (
-            <Alert
-              message="Fitur masih dalam pengembangan."
-              onClose={handleCloseAlert}
-            />
-          )}
-          {/* </NavLink> */}
+            {showAlert && (
+              <Alert
+                message="Fitur masih dalam pengembangan."
+                onClose={handleCloseAlert}
+              />
+            )}
+          </NavLink>
         </div>
-        {/* </div> */}
+
+        {/* Disc */}
+        <div className="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 m-4">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke={`${
+                      theme === "light" ? "#000000" : "#ffffff"
+                    }`}
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M5.52 19c.64-2.2 1.84-3 3.22-3h6.52c1.38 0 2.58.8 3.22 3" />
+            <circle cx="12" cy="10" r="3" />
+            <circle cx="12" cy="12" r="10" />
+          </svg>
+          <h5 className="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
+            Test DiSC
+          </h5>
+          <p className="mb-3 font-normal text-gray-500 dark:text-gray-400">
+            Klik untuk melakukan tes DISc personality
+          </p>
+          <a
+            href="https://disc.yogabayuap.com"
+            target="_blank"
+            className="inline-flex items-center text-blue-600 hover:underline"
+          >
+            Check
+            <svg
+              className="w-3 h-3 ml-2.5"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 18 18"
+            >
+              <path
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M15 11v4.833A1.166 1.166 0 0 1 13.833 17H2.167A1.167 1.167 0 0 1 1 15.833V4.167A1.166 1.166 0 0 1 2.167 3h4.618m4.447-2H17v5.768M9.111 8.889l7.778-7.778"
+              />
+            </svg>
+          </a>
+        </div>
       </div>
     </div>
   );

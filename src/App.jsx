@@ -1,4 +1,3 @@
-import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./pages/Layout";
 import Home from "./pages/Home";
@@ -7,6 +6,7 @@ import Contact from "./pages/Contact";
 import NoPage from "./pages/NoPage";
 import About from "./pages/About";
 import Privacy from "./pages/Privacy";
+import Daily from "./pages/Daily";
 
 export default function App() {
   return (
@@ -15,6 +15,7 @@ export default function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="bmi" element={<Bmi />} />
+          <Route path="daily" element={<Daily />} />
 
 
           <Route path="about" element={<About />} />
@@ -26,6 +27,3 @@ export default function App() {
     </BrowserRouter>
   );
 }
-
-// const root = ReactDOM.createRoot(document.getElementById('root'));
-// root.render(<App />);
