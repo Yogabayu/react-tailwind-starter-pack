@@ -7,6 +7,7 @@ import NoPage from "./pages/NoPage";
 import About from "./pages/About";
 import Privacy from "./pages/Privacy";
 import Daily from "./pages/Daily";
+import IdealWeight from "./pages/IdealWeight";
 
 export default function App() {
   return (
@@ -16,7 +17,7 @@ export default function App() {
           <Route index element={<Home />} />
           <Route path="bmi" element={<Bmi />} />
           <Route path="daily" element={<Daily />} />
-
+          <Route path="idealweight" element={<IdealWeight />} />
 
           <Route path="about" element={<About />} />
           <Route path="privacy" element={<Privacy />} />

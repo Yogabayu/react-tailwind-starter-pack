@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
 const Bmi = () => {
-  // State untuk menyimpan berat badan, tinggi, dan usia
   const [weight, setWeight] = useState("");
   const [height, setHeight] = useState("");
   const [age, setAge] = useState("");
@@ -9,14 +8,9 @@ const Bmi = () => {
   const [keterangan, setKeterangan] = useState("");
   const [saran, setSaran] = useState("");
   const [kualitasBmi, setKualitasBmi] = useState("");
-
-  // State untuk menyimpan hasil perhitungan BMI
   const [bmiResult, setBmiResult] = useState(null);
-
-  // State untuk menyimpan pesan peringatan
   const [warningMessage, setWarningMessage] = useState("");
 
-  // Fungsi untuk menghitung BMI
   const calculateBmi = () => {
     const weightInKg = parseFloat(weight);
     const heightInM = parseFloat(height) / 100;
@@ -74,7 +68,6 @@ const Bmi = () => {
         <div className="container mx-auto p-4 bg-white rounded-lg shadow-lg text-center">
           <h1 className="text-2xl font-semibold mb-4">BMI Calculator</h1>
 
-          {/* Input Form */}
           <div className="mb-4">
             <label htmlFor="age" className="block font-medium mb-1">
               Age:
@@ -125,7 +118,6 @@ const Bmi = () => {
           </button>
 
           <hr className="my-1 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-3" />
-          {/* Output */}
           {warningMessage && (
             <div className="mt-4 text-red-500 font-semibold">
               {warningMessage}

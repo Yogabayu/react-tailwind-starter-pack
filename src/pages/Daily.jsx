@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 const Daily = () => {
-  const [age, setAge] = useState("");
+  const [age, setAge]       = useState("");
   const [gender, setGender] = useState("");
   const [height, setHeight] = useState("");
   const [weight, setWeight] = useState("");
@@ -164,12 +164,6 @@ const Daily = () => {
               </option>
             </select>
           </div>
-          {/* 
-          {warningMessage && (
-            <div className="mt-4 text-red-500 font-semibold text-center">
-              {warningMessage}
-            </div>
-          )} */}
           {isLoading ? (
             <div className="text-center">
               <button className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600">

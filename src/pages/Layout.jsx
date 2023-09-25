@@ -2,11 +2,9 @@ import React, { useState, useEffect } from "react";
 import { Outlet, Link, NavLink } from "react-router-dom";
 import siteLogo from "../images/logo_site.png";
 
-// Buat komponen styled untuk header
-
 const Layout = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [theme, setTheme] = useState("light"); // Tema default
+  const [theme, setTheme] = useState("light");
   useEffect(() => {
     const darkMediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
 
@@ -15,8 +13,6 @@ const Layout = () => {
     } else {
       setTheme("light");
     }
-
-    // Menambahkan event listener untuk perubahan tema
     darkMediaQuery.addEventListener("change", (e) => {
       if (e.matches) {
         setTheme("dark");
@@ -31,7 +27,6 @@ const Layout = () => {
 
   return (
     <div className="bg-gray-100 min-h-screen flex flex-col">
-      {/* Header */}
       <header>
         <nav
           className={`bg-white dark:bg-gray-800 px-4 lg:px-6 py-2.5 border-${
@@ -39,7 +34,6 @@ const Layout = () => {
           } rounded-lg m-4`}
         >
           <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
-            {/* <a href="#" > */}
             <NavLink className="flex items-center" to="/">
               <img
                 src={siteLogo}
@@ -50,7 +44,6 @@ const Layout = () => {
                 fitApp
               </span>
             </NavLink>
-            {/* </a> */}
             <div className="flex items-center lg:order-2">
               <button
                 onClick={toggleMobileMenu}
@@ -130,11 +123,29 @@ const Layout = () => {
                     Daily Requirement
                   </NavLink>
                 </li>
-                 <li>
-                  <a href="https://disc.yogabayuap.com" target="_blank" className={`block py-2 pr-4 pl-3 text-${
+                <li>
+                  <a
+                    href="https://disc.yogabayuap.com"
+                    target="_blank"
+                    className={`block py-2 pr-4 pl-3 text-${
                       theme === "light" ? "black" : "white"
                     } rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0`}
-                    >DiSC</a>
+                  >
+                    DiSC
+                  </a>
+                </li>
+                <li>
+                  <NavLink
+                    to="/idealweight"
+                    className={`block py-2 pr-4 pl-3 text-${
+                      theme === "light" ? "black" : "white"
+                    } rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0`}
+                    style={({ isActive }) => ({
+                      fontWeight: isActive ? "bold" : "normal",
+                    })}
+                  >
+                    Ideal Weight
+                  </NavLink>
                 </li>
               </ul>
             </div>
