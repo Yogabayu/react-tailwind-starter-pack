@@ -34,6 +34,53 @@ const Home = () => {
   return (
     <div className="w-full max-w-screen-xl mx-auto p-4 md:py-8">
       <div className="sm:flex sm:items-center sm:justify-center">
+        {/* cek domain */}
+        <div className="max-w-sm min-w-[300px] min-h-[200px] p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 m-4">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke={`${theme === "light" ? "#000000" : "#ffffff"}`}
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="2" y1="12" x2="22" y2="12"></line>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+          </svg>
+
+          <h5 className="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
+            Cek Website
+          </h5>
+          <p className="mb-3 font-normal text-gray-500 dark:text-gray-400">
+            Klik untuk Melakukan pengecekan apakah website aman atau tidak
+          </p>
+          <NavLink
+            to="/cekdomain"
+            className="inline-flex items-center text-blue-600 hover:underline"
+          >
+            Check
+            <svg
+              className="w-3 h-3 ml-2.5"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 18 18"
+            >
+              <path
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M15 11v4.833A1.166 1.166 0 0 1 13.833 17H2.167A1.167 1.167 0 0 1 1 15.833V4.167A1.166 1.166 0 0 1 2.167 3h4.618m4.447-2H17v5.768M9.111 8.889l7.778-7.778"
+              />
+            </svg>
+          </NavLink>
+        </div>
+
         {/* BMI */}
         <div className="max-w-sm min-w-[300px] min-h-[200px] p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 m-4">
           <svg
@@ -80,7 +127,7 @@ const Home = () => {
         </div>
 
         {/* Daily */}
-        <div className="max-w-sm min-w-[300px] min-h-[200px] p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 m-4">
+        {/* <div className="max-w-sm min-w-[300px] min-h-[200px] p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 m-4">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -129,8 +176,10 @@ const Home = () => {
               />
             )}
           </NavLink>
-        </div>
+        </div> */}
+      </div>
 
+      <div className="sm:flex sm:items-center sm:justify-center">
         {/* Disc */}
         <div className="max-w-sm min-w-[300px] min-h-[200px] p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 m-4">
           <svg
@@ -177,11 +226,8 @@ const Home = () => {
             </svg>
           </a>
         </div>
-      </div>
-
-      <div className="sm:flex sm:items-center sm:justify-center">
         {/* ideal weight */}
-        <div className="max-w-sm min-w-[300px] min-h-[200px] p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 m-4">
+        {/* <div className="max-w-sm min-w-[300px] min-h-[200px] p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 m-4">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             stroke={`${theme === "light" ? "#000000" : "#ffffff"}`}
@@ -223,7 +269,7 @@ const Home = () => {
               />
             </svg>
           </NavLink>
-        </div>
+        </div> */}
       </div>
     </div>
   );

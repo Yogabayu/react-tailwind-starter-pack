@@ -99,6 +99,19 @@ const Layout = () => {
                 </li>
                 <li>
                   <NavLink
+                    to="/cekdomain"
+                    className={`block py-2 pr-4 pl-3 text-${
+                      theme === "light" ? "black" : "white"
+                    } rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0`}
+                    style={({ isActive }) => ({
+                      fontWeight: isActive ? "bold" : "normal",
+                    })}
+                  >
+                    Cek Website
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
                     to="/bmi"
                     className={`block py-2 pr-4 pl-3 text-${
                       theme === "light" ? "black" : "white"
@@ -110,7 +123,7 @@ const Layout = () => {
                     BMI
                   </NavLink>
                 </li>
-                <li>
+                {/* <li>
                   <NavLink
                     to="/daily"
                     className={`block py-2 pr-4 pl-3 text-${
@@ -122,7 +135,7 @@ const Layout = () => {
                   >
                     Daily Requirement
                   </NavLink>
-                </li>
+                </li> */}
                 <li>
                   <a
                     href="https://disc.yogabayuap.com"
@@ -134,7 +147,7 @@ const Layout = () => {
                     DiSC
                   </a>
                 </li>
-                <li>
+                {/* <li>
                   <NavLink
                     to="/idealweight"
                     className={`block py-2 pr-4 pl-3 text-${
@@ -146,7 +159,7 @@ const Layout = () => {
                   >
                     Ideal Weight
                   </NavLink>
-                </li>
+                </li> */}
               </ul>
             </div>
           </div>
@@ -193,7 +206,7 @@ const Layout = () => {
           </div>
           <hr className="my-1 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-3" />
           <span className="block text-sm text-gray-500 sm:text-center dark:text-gray-400">
-            © 2023{" "}
+            © { new Date().getFullYear() }{" "}
             <a
               href="https://yogabayuap.com/"
               className="hover:underline"

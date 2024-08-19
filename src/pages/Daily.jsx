@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 const Daily = () => {
-  const [age, setAge]       = useState("");
+  const [age, setAge] = useState("");
   const [gender, setGender] = useState("");
   const [height, setHeight] = useState("");
   const [weight, setWeight] = useState("");
@@ -28,17 +28,17 @@ const Daily = () => {
 
   const options = {
     method: "GET",
-    url: "https://fitness-calculator.p.rapidapi.com/dailycalorie",
+    url: "https://nutrition-calculator.p.rapidapi.com/api/nutrition-info",
     params: {
-      age: age,
-      gender: gender,
-      height: parseFloat(height),
-      weight: parseFloat(weight),
-      activitylevel: activityLevel,
+      measurement_units: "std",
+      sex: gender,
+      age_value: age,
+      lbs: weight,
+      activity_level: activityLevel,
     },
     headers: {
-      "X-RapidAPI-Key": "ce9e696f65msh1a41eb6a04f0d44p1ede58jsn893762cf7008",
-      "X-RapidAPI-Host": "fitness-calculator.p.rapidapi.com",
+      "x-rapidapi-key": "ce9e696f65msh1a41eb6a04f0d44p1ede58jsn893762cf7008",
+      "x-rapidapi-host": "nutrition-calculator.p.rapidapi.com",
     },
   };
 
@@ -61,11 +61,11 @@ const Daily = () => {
           setResult(response.data.data);
         } else {
           setStatus(500);
-          setWarningMessage("error");
+          setWarningMessage("Error fetching data. Please try again later.");
         }
       }
     } catch (error) {
-      setWarningMessage(error);
+      setWarningMessage("Error fetching data. Please try again later.");
     } finally {
       setIsLoading(false);
     }
@@ -224,6 +224,10 @@ const Daily = () => {
                   {warningMessage}
                 </div>
               )}
+            </div>
+          ) : status === 500 ? (
+            <div className="mt-4 text-red-500 font-semibold text-center">
+              {warningMessage}
             </div>
           ) : (
             <div className="container mx-auto p-4 bg-white rounded-lg shadow-lg">
@@ -405,10 +409,20 @@ const Daily = () => {
               level_6 = Olahraga yang sangat intens setiap hari, atau pekerjaan
               fisik
             </li>
-                  </ul>
-                  
+          </ul>
+
           <hr className="my-1 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-3" />
-          <p className="mt-4">Data Source : <a href="https://rapidapi.com/malaaddincelik/api/fitness-calculator" target="_blank" rel="noopener noreferrer" className="text-sky-500">RapidApi</a></p>
+          <p className="mt-4">
+            Data Source :{" "}
+            <a
+              href="https://rapidapi.com/malaaddincelik/api/fitness-calculator"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sky-500"
+            >
+              RapidApi
+            </a>
+          </p>
         </div>
       </div>
     </div>
