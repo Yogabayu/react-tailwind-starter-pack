@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "axios": "^1.5.0",
+    "http-proxy-middleware": "^3.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
@@ -27,5 +28,6 @@
     "react-router-dom": "^6.16.0",
     "tailwindcss": "^3.3.3",
     "vite": "^4.4.5"
-  }
+  },
+  "proxy": "https://www.virustotal.com/api/v3"
 }
